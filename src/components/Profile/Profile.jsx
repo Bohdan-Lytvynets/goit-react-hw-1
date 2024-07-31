@@ -1,41 +1,28 @@
-import css from './Profile.module.css';
+import style from "./Profile.module.css";
 
-const Profile = ({ name,avatar, tag, location, stats }) => {
+export default function Profile({ name, tag, location, image, stats }) {
   return (
-    <div className={css.profile}>
-      <div className={css.description}>
-        <img className={css.avatar} 
-          src={avatar}
-          alt="User avatar"
-        />
-        <p className="userName">{name}</p>
-        <p className={css.tag}>@{tag}</p>
-        <p className={css.location}>{location}</p>
+    <div className={style.profile}>
+      <div className={style.firstDiv}>
+        <img className={style.image} src={image} alt="User avatar" />
+        <p className={style.Name}>{name}</p>
+        <p className={style.text}>@{tag}</p>
+        <p className={style.text}>{location}</p>
       </div>
-
-      <ul className={css.stats}>
-        <li>
-          <span className={css.label}>Followers</span>
-          <span className={css.quantity}>{stats.followers}</span>
+      <ul className={style.ulProfile}>
+        <li className={style.liProfile}>
+          <span className={style.liSpan}>Followers</span>
+          <span className={style.spanStats}>{stats.followers}</span>
         </li>
-        <li>
-          <span className={css.label}>Views</span>
-          <span className={css.quantity}>{stats.views}</span>
+        <li className={style.liProfile}>
+          <span className={style.liSpan}>Views</span>
+          <span className={style.spanStats}>{stats.views}</span>
         </li>
-        <li>
-          <span className={css.label}>Likes</span>
-          <span className={css.quantity}>{stats.likes}</span>
+        <li className={style.liProfile}>
+          <span className={style.liSpan}>Likes</span>
+          <span className={style.spanStats}>{stats.likes}</span>
         </li>
       </ul>
     </div>
   );
-};
-
-// Опис типів пропсів компонента
-// Product.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   imgUrl: PropTypes.string,
-//   price: PropTypes.number.isRequired,
-// };
-
-export default Profile;
+}

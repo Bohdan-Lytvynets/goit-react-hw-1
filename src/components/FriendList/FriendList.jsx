@@ -1,24 +1,14 @@
-// import { arrayOf } from "prop-types";
-import FriendListItem from "../FriendListItem/FriendListItem";
-import css from '../FriendList/FriendList.module.css';
+import FriendListItem from "./FriendListItem";
+import css from "./FriendList.module.css";
 
-const FriendList = ({ friends }) => {
-  // console.log(typeof friends);
-
+export default function FriendList({ friends }) {
   return (
-    <ul className={css.friendList}>
-      <>
-        {friends.map(({ avatar, name, isOnline, id }) => (
-          <FriendListItem
-            key={id}
-            avatar={avatar}
-            name={name}
-            isOnline={isOnline}
-          />
-        ))}
-      </>
+    <ul className={css.ulFriend}>
+      {friends.map((friend) => (
+        <li className={css.liFriend} key={friend.id}>
+          <FriendListItem friend={friend} />
+        </li>
+      ))}
     </ul>
   );
-};
-
-export default FriendList;
+}
